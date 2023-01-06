@@ -10,7 +10,7 @@
 ### Exercises
 
 - Zoo excercise will run in the command line, you have to select an animal and type a text for animal speaking
-- Url Parser will parser the url pasted on you browser, you will have the json object with the params as the result (if version or id is not a number the server will return an error)
+- Url Parser will parse the url pasted on you browser, you will have the json object with the params as the result (if version or id is not a number the server will return an error)
 
 ### Error Alarm Excercise
 
@@ -39,7 +39,7 @@ const sendEmail = (message) =>{
   };
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.log(error);
+      logError(error);
     } else {
       console.log(‘Email was sent to: ‘ + info.response);
     }
@@ -54,17 +54,23 @@ Every time that we catch an error we need to set the counter and if exceeds the 
 ```
 import sendEmail from 'emailService.js';
 
+let ERROR_COUNT = 0;
+let LAST_EMAIL_SENT = 0;
+
 try {
   throw new Exception(); // generates an exception
 }
 catch (e) {
-  console.log(e);
+  // use an existing log error function
+  logError(error);
   ERROR_COUNT ++;
-  // validate the error count
-  if(ERROR_COUNT >= 10){
+
+  // validate the error count and the last email was sent after a minute
+  if(ERROR_COUNT >= 10 && (new Date().getTime() - LAST_EMAIL_SENT) > 60000 ){
     sendEmail(e.toString());
-    // we need to set the ERROR_COUNT to 0
+    // we need to set the ERROR_COUNT to 0 and LAST_EMAIL_SENT to the last email sent time
     ERROR_COUNT = 0;
+    LAST_EMAIL_SENT = new Date().getTime();
   }
 }
 ```
