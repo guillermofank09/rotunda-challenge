@@ -20,7 +20,7 @@ I chose `Nodemailer` that is a library from Node js to send email, we can use an
 Create an `emailService` class and define `sendEmail` function that receives the message and call the service to send it.
 
 
-`
+```
 import nodemailer from ‘nodemailer’;
 
 const sendEmail = (message) =>{
@@ -46,12 +46,12 @@ const sendEmail = (message) =>{
  });
 }
 export sendEmail;
-`
+```
 
 We can define a counter to see the frecuency of this error (globally in the App)
 Every time that we catch an error we need to set the counter and if exceeds the limit, we'll send the email
 
-`
+```
 import sendEmail from 'emailService.js';
 
 try {
@@ -67,4 +67,4 @@ catch (e) {
     ERROR_COUNT = 0;
   }
 }
-`
+```
