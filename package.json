@@ -1,0 +1,31 @@
+{
+  "name": "rotunda-challenge",
+  "version": "1.0.0",
+  "description": "It shows 3 different code challenges for Rotunda company",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillermofank09/rotunda-challenge.git"
+  },
+  "author": "Guillermo Fank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guillermofank09/rotunda-challenge/issues"
+  },
+  "homepage": "https://github.com/guillermofank09/rotunda-challenge#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "inquirer": "^8.2.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/register": "^7.18.9"
+  }
+}
