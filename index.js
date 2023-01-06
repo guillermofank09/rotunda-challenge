@@ -14,15 +14,6 @@ app.use(bodyParser.json());
 
 // URL Parser Exercise
 
-app.get('/',  (req, res) => {
-    res.send('corre el server');
-})
-
-app.get('/test/:numero',  (req, res) => {
-    console.log("holaaa");
-    res.send('holaaa');
-})
-
 app.get('/:version/api/:collection/:id',  (req, res) => {
 
     const { version, id } = req.params
